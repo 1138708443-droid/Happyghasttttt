@@ -3,9 +3,7 @@ package com.norstwest.happyghast_mod.NewGhast;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.happyghast.HappyGhast;
@@ -49,7 +47,6 @@ public class SmallGhast_EntityClass extends HappyGhast {
         }
         return null;
     }
-
 
     @Override
     public boolean supportQuadLeashAsHolder() {
