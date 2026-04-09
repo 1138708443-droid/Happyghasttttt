@@ -29,10 +29,10 @@ public class HappyGhastControl {
 
         double vertical = 0.0;
         if (player.isJumping()) {
-            vertical = 0.5;
+            vertical = 0.7;
         }
         if (KeyBindings.DOWN_KEY.isDown()) {
-            vertical = -0.5;
+            vertical = -0.7;
         }
 
         Vec3 movement = new Vec3(xxa, vertical, zza);
