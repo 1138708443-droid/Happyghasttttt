@@ -24,7 +24,7 @@ public class SmallGhastEntity_Register {
                     .updateInterval(3)
                     .build(ResourceKey.create(
                             Registries.ENTITY_TYPE,
-                            ResourceLocation.fromNamespaceAndPath(HappyGhast_Extend.MODID, "medium_adult_ghast")))  // 修改：Identifier → ResourceLocation
+                            ResourceLocation.fromNamespaceAndPath(HappyGhast_Extend.MODID, "medium_adult_ghast")))
             );
 
     public static void register(IEventBus bus) {
