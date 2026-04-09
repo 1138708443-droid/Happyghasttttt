@@ -11,6 +11,7 @@ import net.minecraft.world.entity.animal.HappyGhast;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
+@SuppressWarnings("deprecation")
 @OnlyIn(Dist.CLIENT)
 public class SmallGhast_Renderer extends AgeableMobRenderer<HappyGhast, HappyGhastRenderState, HappyGhastModel> {
 
