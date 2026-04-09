@@ -20,18 +20,18 @@ public class SmallGhast_Renderer extends AgeableMobRenderer<HappyGhast, HappyGha
     private static final float MODEL_SCALE = 1.58F;
 
     public SmallGhast_Renderer(EntityRendererProvider.Context context) {
-        // 注意：这里需要传入成年模型和幼年模型
+
         super(context,
                 new HappyGhastModel(context.bakeLayer(ModelLayers.HAPPY_GHAST)),
                 new HappyGhastModel(context.bakeLayer(ModelLayers.HAPPY_GHAST_BABY)),
-                2.0F  // shadowRadius
+                2.0F
         );
         this.shadowRadius = 0.5F * MODEL_SCALE;
     }
 
     @Override
     public ResourceLocation getTextureLocation(HappyGhastRenderState state) {
-        // 始终使用幼年纹理（因为你的实体是小型恶魂）
+
         return GHAST_BABY_LOCATION;
     }
 
@@ -43,13 +43,12 @@ public class SmallGhast_Renderer extends AgeableMobRenderer<HappyGhast, HappyGha
     @Override
     public void extractRenderState(HappyGhast entity, HappyGhastRenderState state, float partialTick) {
         super.extractRenderState(entity, state, partialTick);
-        // 强制设置为幼年状态
         state.isBaby = true;
     }
 
     @Override
     protected void scale(HappyGhastRenderState state, PoseStack poseStack) {
-        // 应用缩放
+
         poseStack.scale(MODEL_SCALE, MODEL_SCALE, MODEL_SCALE);
     }
 }

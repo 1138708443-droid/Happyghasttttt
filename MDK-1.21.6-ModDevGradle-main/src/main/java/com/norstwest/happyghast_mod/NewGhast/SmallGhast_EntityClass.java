@@ -33,7 +33,7 @@ public class SmallGhast_EntityClass extends HappyGhast {
     @Nullable
     @Override
     public LivingEntity getControllingPassenger() {
-        // 简化逻辑：只要有乘客就返回第一个玩家
+
         if (!this.isOnStillTimeout()) {
             Entity passenger = this.getFirstPassenger();
             if (passenger instanceof Player) {
@@ -45,12 +45,12 @@ public class SmallGhast_EntityClass extends HappyGhast {
 
     @Override
     public boolean supportQuadLeashAsHolder() {
-        return true;  // 原版返回 true
+        return true;
     }
 
     @Override
     public float getAgeScale() {
-        return 1.05F;  // 自定义大小，介于幼年(0.2375F)和成年(1.0F)之间
+        return 1.05F;
     }
 
     @Override
