@@ -7,7 +7,8 @@ public class Config {
 
     public static final ModConfigSpec.BooleanValue USE_NEOCONTROL = BUILDER
             .comment("Whether to use custom control for Happy Ghast",
-                    "true: WASD horizontal movement, Space up, C down"
+                    "true: WASD horizontal movement, Space up, C down",
+                    "false: Vanilla control (pitch affects flight direction)"
             )
             .define("useCustomControl", true);
 
