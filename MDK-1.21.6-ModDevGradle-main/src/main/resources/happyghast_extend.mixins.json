@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.norstwest.happyghast_mod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "HappyGhastControl"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
