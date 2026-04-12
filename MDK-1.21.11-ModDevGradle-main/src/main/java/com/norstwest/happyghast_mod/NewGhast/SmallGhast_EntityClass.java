@@ -68,7 +68,7 @@ public class SmallGhast_EntityClass extends HappyGhast {
         return super.getRiddenRotation(entity);
     }
 
-
+    @Override
     public @NonNull InteractionResult mobInteract(@NonNull Player player, @NonNull InteractionHand hand) {
         if (!(this.level() instanceof ServerLevel)) {
             return InteractionResult.SUCCESS;
@@ -92,16 +92,19 @@ public class SmallGhast_EntityClass extends HappyGhast {
 
     @Override
     public void addAdditionalSaveData(@NonNull ValueOutput output) {
+
         super.addAdditionalSaveData(output);
     }
 
     @Override
     public void readAdditionalSaveData(@NonNull ValueInput input) {
+
         super.readAdditionalSaveData(input);
     }
 
     @Override
     public boolean isBaby() {
+
         return false;
     }
 
