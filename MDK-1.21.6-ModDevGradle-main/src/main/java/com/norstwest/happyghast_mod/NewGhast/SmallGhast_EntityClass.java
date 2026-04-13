@@ -1,9 +1,5 @@
 package com.norstwest.happyghast_mod.NewGhast;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -12,9 +8,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.HappyGhast;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.storage.ValueInput;
-import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.phys.Vec2;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -30,10 +24,8 @@ public class SmallGhast_EntityClass extends HappyGhast {
                 .add(Attributes.FLYING_SPEED, 0.03D);
     }
 
-    @Nullable
     @Override
-    public LivingEntity getControllingPassenger() {
-
+    public @Nullable LivingEntity getControllingPassenger() {
         if (!this.isOnStillTimeout()) {
             Entity passenger = this.getFirstPassenger();
             if (passenger instanceof Player) {
@@ -45,7 +37,7 @@ public class SmallGhast_EntityClass extends HappyGhast {
 
     @Override
     public boolean supportQuadLeashAsHolder() {
-        return true;
+        return false;
     }
 
     @Override
@@ -54,23 +46,11 @@ public class SmallGhast_EntityClass extends HappyGhast {
     }
 
     @Override
-    public boolean isBaby() {
-
-        return false;
-    }
-
-    @Override
-    public @NotNull InteractionResult mobInteract(@NotNull Player player, @NotNull InteractionHand hand) {
-        if (!(this.level() instanceof ServerLevel)) {
-            return InteractionResult.SUCCESS;
+    protected @NotNull Vec2 getRiddenRotation(@NotNull LivingEntity entity) {
+        if (entity instanceof Player player) {
+            return new Vec2(player.getXRot() * 0.5F, player.getYRot());
         }
-
-
-        if (!player.isPassenger() && !this.isVehicle()) {
-            player.startRiding(this);
-            return InteractionResult.SUCCESS;
-        }
-        return super.mobInteract(player, hand);
+        return super.getRiddenRotation(entity);
     }
 
     @Override
@@ -79,22 +59,7 @@ public class SmallGhast_EntityClass extends HappyGhast {
     }
 
     @Override
-    public void addAdditionalSaveData(@NotNull ValueOutput output) {
-        super.addAdditionalSaveData(output);
-
-    }
-
-    @Override
-    public void readAdditionalSaveData(@NotNull ValueInput input) {
-        super.readAdditionalSaveData(input);
-
-    }
-
-    @Override
-    public float getWalkTargetValue(@NotNull BlockPos pos, LevelReader level) {
-        if (!level.isEmptyBlock(pos)) {
-            return 0.0F;
-        }
-        return level.isEmptyBlock(pos.below()) ? 10.0F : 5.0F;
+    public boolean isBaby() {
+        return false;
     }
 }

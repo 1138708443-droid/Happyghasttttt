@@ -3,7 +3,7 @@
   "package": "com.norstwest.happyghast_mod.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "HappyGhastControl"
+    "HappyGhastControl","HappyGhastHarnessModelMixin"
   ],
   "client": [],
   "injectors": {
