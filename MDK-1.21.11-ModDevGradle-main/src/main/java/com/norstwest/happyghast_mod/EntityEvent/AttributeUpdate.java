@@ -12,6 +12,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
+import java.util.Objects;
+
 @EventBusSubscriber(modid = HappyGhast_Extend.MODID)
 public class AttributeUpdate {
 
@@ -21,7 +23,7 @@ public class AttributeUpdate {
         if (!(event.getEntity() instanceof LivingEntity living)) return;
         if (living.getType() != EntityType.HAPPY_GHAST ) return;
 
-        living.getAttribute(Attributes.MAX_HEALTH).setBaseValue(100.0D);
+        Objects.requireNonNull(living.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(100.0D);
         living.setHealth(100.0F);
     }
 
