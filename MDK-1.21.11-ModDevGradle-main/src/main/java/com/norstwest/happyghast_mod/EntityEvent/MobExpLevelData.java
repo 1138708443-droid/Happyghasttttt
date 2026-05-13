@@ -1,4 +1,4 @@
-package com.norstwest.happyghast_mod.EntityEvent;
+/*package com.norstwest.happyghast_mod.EntityEvent;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -27,4 +27,4 @@ public record MobExpLevelData (int level, int exp) {
     public MobExpLevelData levelUp() {
         return new MobExpLevelData(level + 1, exp);
     }
-}
+}*/

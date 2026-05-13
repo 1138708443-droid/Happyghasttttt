@@ -1,8 +1,8 @@
 package com.norstwest.happyghast_mod.EntityEvent;
 
 import com.norstwest.happyghast_mod.HappyGhast_Extend;
-import com.norstwest.happyghast_mod.NewGhast.SmallGhastEntity_Register;
-import com.norstwest.happyghast_mod.NewGhast.SmallGhast_EntityClass;
+import com.norstwest.happyghast_mod.NewEntity.SmallGhastEntity_Register;
+import com.norstwest.happyghast_mod.NewEntity.SmallGhast_EntityClass;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;

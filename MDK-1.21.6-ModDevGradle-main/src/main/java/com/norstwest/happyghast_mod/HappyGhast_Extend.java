@@ -1,10 +1,11 @@
 package com.norstwest.happyghast_mod;
 
 import com.norstwest.happyghast_mod.EntityEvent.HG_EXPLevelData;
-import com.norstwest.happyghast_mod.NewGhast.SmallGhastEntity_Register;
-import net.minecraft.world.item.*;
-import net.neoforged.neoforge.registries.*;
+import com.norstwest.happyghast_mod.Network.SnowballShootPacket;
+import com.norstwest.happyghast_mod.NewEntity.SmallGhastEntity_Register;
 
+import com.norstwest.happyghast_mod.NewEntity.newSnowball.EntityRegister;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -24,32 +25,32 @@ public class HappyGhast_Extend {
 
     public static final String MODID = "happyghast_extend";
 
-    public static final Logger LOGGER = LogUtils.getLogger();
 
 
 
     public HappyGhast_Extend(IEventBus modEventBus, ModContainer modContainer) {
 
-        modEventBus.addListener(this::commonSetup);
-
         HG_EXPLevelData.ATTACHMENTS.register(modEventBus);
 
         SmallGhastEntity_Register.register(modEventBus);
 
-        NeoForge.EVENT_BUS.register(this);
+        EntityRegister.ENTITIES.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        modEventBus.addListener(this::registerPayloads);
     }
 
-    private void commonSetup(FMLCommonSetupEvent event) {
+    public void registerPayloads(RegisterPayloadHandlersEvent event) {
+        var reg = event.registrar(MODID)
+                .versioned("1")
+                .optional();
 
-        LOGGER.info("HELLO FROM COMMON SETUP");
-
+        reg.playToServer(
+                SnowballShootPacket.TYPE,
+                SnowballShootPacket.CODEC,
+                SnowballShootPacket::handle
+        );
     }
 
-
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("HELLO from server starting");
-    }
 }

@@ -1,4 +1,4 @@
-package com.norstwest.happyghast_mod.EntityEvent;
+/*package com.norstwest.happyghast_mod.EntityEvent;
 
 import net.minecraft.world.entity.animal.happyghast.HappyGhast;
 
@@ -39,4 +39,4 @@ public class HG_LevelUpAdd {
 
         event.setCanceled(true);
     }
-}
+}*/

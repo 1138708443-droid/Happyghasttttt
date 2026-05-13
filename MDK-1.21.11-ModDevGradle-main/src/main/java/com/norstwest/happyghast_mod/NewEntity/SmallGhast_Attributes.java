@@ -1,4 +1,4 @@
-package com.norstwest.happyghast_mod.NewGhast;
+package com.norstwest.happyghast_mod.NewEntity;
 
 import com.norstwest.happyghast_mod.HappyGhast_Extend;
 import net.neoforged.bus.api.SubscribeEvent;

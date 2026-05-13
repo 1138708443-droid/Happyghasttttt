@@ -18,12 +18,4 @@ public class ExampleModClient {
 
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
-
-    @SubscribeEvent
-    static void onClientSetup(FMLClientSetupEvent event) {
-
-        HappyGhast_Extend.LOGGER.info("HELLO FROM CLIENT SETUP");
-        HappyGhast_Extend.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-    }
-
 }

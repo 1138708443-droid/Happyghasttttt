@@ -1,8 +1,8 @@
 package com.norstwest.happyghast_mod.TagEvent;
 
 import com.norstwest.happyghast_mod.HappyGhast_Extend;
-import com.norstwest.happyghast_mod.NewGhast.SmallGhastEntity_Register;
-import com.norstwest.happyghast_mod.NewGhast.SmallGhast_EntityClass;
+import com.norstwest.happyghast_mod.NewEntity.SmallGhastEntity_Register;
+import com.norstwest.happyghast_mod.NewEntity.SmallGhast_EntityClass;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;

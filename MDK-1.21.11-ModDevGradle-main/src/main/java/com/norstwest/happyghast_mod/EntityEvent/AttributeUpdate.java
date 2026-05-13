@@ -1,8 +1,9 @@
 package com.norstwest.happyghast_mod.EntityEvent;
 
 import com.norstwest.happyghast_mod.HappyGhast_Extend;
-import com.norstwest.happyghast_mod.NewGhast.SmallGhastEntity_Register;
-import com.norstwest.happyghast_mod.NewGhast.SmallGhast_EntityClass;
+import com.norstwest.happyghast_mod.NewEntity.SmallGhastEntity_Register;
+import com.norstwest.happyghast_mod.NewEntity.SmallGhast_EntityClass;
+import com.norstwest.happyghast_mod.NewEntity.newSnowball.EntityClasss;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -10,6 +11,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 import java.util.Objects;
@@ -43,5 +45,10 @@ public class AttributeUpdate {
         }
     }
 
-
+    @SubscribeEvent
+    public static void onLivingDamage(LivingIncomingDamageEvent event) {
+        if (event.getSource().getDirectEntity() instanceof EntityClasss) {
+            event.setCanceled(true);
+        }
+    }
 }

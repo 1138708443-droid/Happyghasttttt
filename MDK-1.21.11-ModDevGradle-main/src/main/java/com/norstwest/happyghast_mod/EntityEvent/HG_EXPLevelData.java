@@ -1,4 +1,4 @@
-package com.norstwest.happyghast_mod.EntityEvent;
+/*package com.norstwest.happyghast_mod.EntityEvent;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -52,4 +52,4 @@ public class HG_EXPLevelData {
     }
 
 
-}
+}*/

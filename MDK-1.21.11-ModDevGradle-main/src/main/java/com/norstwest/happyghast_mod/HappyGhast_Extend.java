@@ -1,22 +1,19 @@
 package com.norstwest.happyghast_mod;
 
-import com.norstwest.happyghast_mod.EntityEvent.HG_EXPLevelData;
-import com.norstwest.happyghast_mod.NewGhast.SmallGhastEntity_Register;
-import net.minecraft.world.item.*;
-import net.neoforged.neoforge.registries.*;
+//import com.norstwest.happyghast_mod.EntityEvent.HG_EXPLevelData;
+import com.norstwest.happyghast_mod.Network.SnowballShootPacket;
+import com.norstwest.happyghast_mod.NewEntity.SmallGhastEntity_Register;
 
-import org.slf4j.Logger;
-
-import com.mojang.logging.LogUtils;
+import com.norstwest.happyghast_mod.NewEntity.newSnowball.EntityClasss;
+import com.norstwest.happyghast_mod.NewEntity.newSnowball.EntityRegister;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
+
 
 
 @Mod(HappyGhast_Extend.MODID)
@@ -24,32 +21,28 @@ public class HappyGhast_Extend {
 
     public static final String MODID = "happyghast_extend";
 
-    public static final Logger LOGGER = LogUtils.getLogger();
-
-
 
     public HappyGhast_Extend(IEventBus modEventBus, ModContainer modContainer) {
 
-        modEventBus.addListener(this::commonSetup);
-
-        HG_EXPLevelData.ATTACHMENTS.register(modEventBus);
-
+        //HG_EXPLevelData.ATTACHMENTS.register(modEventBus);
         SmallGhastEntity_Register.register(modEventBus);
 
-        NeoForge.EVENT_BUS.register(this);
+        EntityRegister.ENTITIES.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        modEventBus.addListener(this::registerPayloads);
     }
 
-    private void commonSetup(FMLCommonSetupEvent event) {
+    public void registerPayloads(RegisterPayloadHandlersEvent event) {
+        var reg = event.registrar(MODID)
+                .versioned("1")
+                .optional();
 
-        LOGGER.info("HELLO FROM COMMON SETUP");
-
-    }
-
-
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("HELLO from server starting");
+        reg.playToServer(
+                SnowballShootPacket.TYPE,
+                SnowballShootPacket.CODEC,
+                SnowballShootPacket::handle
+        );
     }
 }

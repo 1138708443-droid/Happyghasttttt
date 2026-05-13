@@ -1,4 +1,4 @@
-package com.norstwest.happyghast_mod.NewGhast;
+package com.norstwest.happyghast_mod.NewEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

@@ -16,8 +16,15 @@ public class KeyBindings {
             KeyMapping.Category.MOVEMENT
     );
 
+    public static final KeyMapping ATTACK_KEY = new KeyMapping(
+            "key.happyghast.attack",
+            InputConstants.KEY_X,
+            KeyMapping.Category.DEBUG
+    );
+
     @SubscribeEvent
     public static void registerKeys(RegisterKeyMappingsEvent event) {
         event.register(DOWN_KEY);
+        event.register(ATTACK_KEY);
     }
 }
