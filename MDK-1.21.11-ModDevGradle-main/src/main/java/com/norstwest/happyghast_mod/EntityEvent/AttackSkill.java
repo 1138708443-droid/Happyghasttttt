@@ -15,9 +15,9 @@ public final class AttackSkill {
 
     @SubscribeEvent
     public static void onClientTick(ClientTickEvent.Post event) {
-        Minecraft mc = Minecraft.getInstance();
+        Minecraft ghastshot = Minecraft.getInstance();
 
-        if (mc.player == null || mc.level == null || mc.getConnection() == null) {
+        if (ghastshot.player == null || ghastshot.level == null || ghastshot.getConnection() == null) {
             return;
         }
 
@@ -30,8 +30,8 @@ public final class AttackSkill {
             return;
         }
 
-        if (mc.player.getVehicle() instanceof HappyGhast) {
-            mc.getConnection().send(new SnowballShootPacket());
+        if (ghastshot.player.getVehicle() instanceof HappyGhast) {
+            ghastshot.getConnection().send(new SnowballShootPacket());
             cooldown = 20;
         }
     }

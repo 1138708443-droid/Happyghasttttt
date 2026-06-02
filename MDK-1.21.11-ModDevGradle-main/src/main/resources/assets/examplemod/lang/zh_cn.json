@@ -1,3 +1,5 @@
 {
-  "happyghast_extend.configuration.useCustomControl": "使用新类控制"
+  "happyghast_extend.configuration.useCustomControl": "使用新类控制",
+  "key.happyghast.attack": "发射雪球",
+  "key.happyghast.down": "乐魂下移"
 }
