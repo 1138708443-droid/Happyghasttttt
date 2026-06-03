@@ -1,12 +1,9 @@
 package com.norstwest.happyghast_mod;
 
-//import com.norstwest.happyghast_mod.EntityEvent.HG_EXPLevelData;
 import com.norstwest.happyghast_mod.Network.SnowballShootPacket;
 import com.norstwest.happyghast_mod.NewEntity.SmallGhastEntity_Register;
 
-import com.norstwest.happyghast_mod.NewEntity.newSnowball.EntityClasss;
 import com.norstwest.happyghast_mod.NewEntity.newSnowball.EntityRegister;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 import net.neoforged.bus.api.IEventBus;
@@ -24,7 +21,6 @@ public class HappyGhast_Extend {
 
     public HappyGhast_Extend(IEventBus modEventBus, ModContainer modContainer) {
 
-        //HG_EXPLevelData.ATTACHMENTS.register(modEventBus);
         SmallGhastEntity_Register.register(modEventBus);
 
         EntityRegister.ENTITIES.register(modEventBus);

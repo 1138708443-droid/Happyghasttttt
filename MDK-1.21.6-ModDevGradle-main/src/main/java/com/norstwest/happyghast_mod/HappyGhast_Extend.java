@@ -1,6 +1,6 @@
 package com.norstwest.happyghast_mod;
 
-import com.norstwest.happyghast_mod.EntityEvent.HG_EXPLevelData;
+
 import com.norstwest.happyghast_mod.Network.SnowballShootPacket;
 import com.norstwest.happyghast_mod.NewEntity.SmallGhastEntity_Register;
 
@@ -29,8 +29,6 @@ public class HappyGhast_Extend {
 
 
     public HappyGhast_Extend(IEventBus modEventBus, ModContainer modContainer) {
-
-        HG_EXPLevelData.ATTACHMENTS.register(modEventBus);
 
         SmallGhastEntity_Register.register(modEventBus);
 
